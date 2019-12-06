@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ShowService } from '../show.service';
+
 @Component({
   selector: 'app-setlists',
   templateUrl: './setlists.component.html',
@@ -7,8 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetlistsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private showService: ShowService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.showService.getShows().subscribe(result => {
+      console.log(result);
+    });
+  }
 
 }
