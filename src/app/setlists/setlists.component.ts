@@ -8,12 +8,13 @@ import { ShowService } from '../show.service';
   styleUrls: ['./setlists.component.scss']
 })
 export class SetlistsComponent implements OnInit {
+  private shows: any;
 
   constructor(private showService: ShowService) { }
 
   ngOnInit() {
-    this.showService.getShows().subscribe(result => {
-      console.log(result);
+    this.showService.getShows().subscribe((result: any) => {
+      this.shows = result.data.shows;
     });
   }
 
