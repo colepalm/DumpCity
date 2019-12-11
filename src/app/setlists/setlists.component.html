@@ -1,1 +1,6 @@
-<p *ngFor="let show of shows">{{show.date}}</p>
+<mat-list>
+  <div *ngFor="let show of shows; let lastItem = last">
+    <mat-list-item>{{show.date}}</mat-list-item>
+    <mat-divider *ngIf="!lastItem"></mat-divider>
+  </div>
+</mat-list>
