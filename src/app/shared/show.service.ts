@@ -12,9 +12,14 @@ export class ShowService {
   getShows() {
     return this.apollo.watchQuery({
       query: gql`
-        query {
+        query shows {
           shows {
-            date
+            date,
+            venue {
+              name,
+              city,
+              state
+            }
           }
         }`
     }).valueChanges;
