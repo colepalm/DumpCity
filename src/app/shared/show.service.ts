@@ -19,6 +19,13 @@ export class ShowService {
               name,
               city,
               state
+            },
+            setlist {
+              songsPlayed {
+                song {
+                  name
+                }
+              }
             }
           }
         }`

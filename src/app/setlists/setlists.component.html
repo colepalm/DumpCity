@@ -4,5 +4,17 @@
     <mat-card-subtitle>
       {{ show.venue.name }}, {{ show.venue.city }}, {{ show.venue.state }}
     </mat-card-subtitle>
+    <mat-card-content>
+      <ng-container *ngFor="let set of show.setlist">
+        <li>
+          {{ show.setlist.indexOf(set) + 1 }}:
+          <span>
+            <ng-container *ngFor="let songInstance of set.songsPlayed">
+              {{ songInstance.song.name }},
+            </ng-container>
+          </span>
+        </li>
+      </ng-container>
+    </mat-card-content>
   </mat-card>
 </div>
