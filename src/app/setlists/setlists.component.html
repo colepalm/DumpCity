@@ -10,7 +10,9 @@
           {{ show.setlist.indexOf(set) + 1 }}:
           <span>
             <ng-container *ngFor="let songInstance of set.songsPlayed">
-              {{ songInstance.song.name }},
+              <a [routerLink]="['/song/' + songInstance.song.id]">
+                {{ songInstance.song.name }},
+              </a>
             </ng-container>
           </span>
         </li>

@@ -23,6 +23,7 @@ export class ShowService {
             setlist {
               songsPlayed {
                 song {
+                  id,
                   name
                 }
               }
