@@ -3,9 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SetlistsComponent } from './setlists/setlists.component';
 
-
 const routes: Routes = [
-  { path: 'setlists', component: SetlistsComponent }
+  { path: 'setlists', component: SetlistsComponent },
+  {
+    path: 'song',
+    loadChildren: () => import('./song/song.module').then(m => m.SongModule)
+  }
 ];
 
 @NgModule({
