@@ -14,9 +14,7 @@ export class SetlistsComponent implements OnInit {
 
   ngOnInit() {
     this.showService.getShows().subscribe((result: any) => {
-      this.shows = result.data.shows.slice(0, 100);
       for (const show of this.shows) {
-        console.log(show);
         show.date = new Date(show.date);
       }
     });

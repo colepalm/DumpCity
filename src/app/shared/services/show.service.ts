@@ -8,7 +8,7 @@ export class ShowService {
   constructor(private apollo: Apollo) { }
 
   getShows() {
-    return this.apollo.watchQuery({
+    return this.apollo.query({
       query: gql`
         query shows {
           shows {
@@ -28,6 +28,6 @@ export class ShowService {
             }
           }
         }`
-    }).valueChanges;
+    });
   }
 }
