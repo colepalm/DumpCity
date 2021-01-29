@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { ShowService } from '../shared/show.service';
+import { ShowService } from '../shared/services/show.service';
 
 @Component({
   selector: 'app-setlists',

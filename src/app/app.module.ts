@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SetlistsComponent } from './setlists/setlists.component';
 import { GraphQLModule } from './graphql.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +21,9 @@ import { GraphQLModule } from './graphql.module';
     GraphQLModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatCardModule
+    MatCardModule,
+    SharedModule
   ],
-  providers: [],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
