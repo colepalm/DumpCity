@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
 
-import { ShowService } from '../shared/services/show.service';
+import { AllShowsService } from '../shared/services/show.service';
 
 @Component({
   selector: 'app-setlists',
@@ -10,11 +11,13 @@ import { ShowService } from '../shared/services/show.service';
 export class SetlistsComponent implements OnInit {
   shows: any;
 
-  constructor(private showService: ShowService) { }
+  constructor(private allShowService: AllShowsService) { }
 
   ngOnInit() {
-    this.showService.getShows().subscribe((result: any) => {
-      this.shows = result.data.shows;
-    });
+    this.allShowService.watch()
+      .valueChanges
+      .pipe(
+        map((result: any) => this.shows = result.data.shows)
+      ).subscribe();
   }
 }

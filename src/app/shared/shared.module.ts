@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { ShowService } from './services/show.service';
+import { AllShowsService } from './services/show.service';
 import { SongService } from './services/song.service';
 
 @NgModule({
   providers: [
-    ShowService,
+    AllShowsService,
     SongService
   ]
 })
