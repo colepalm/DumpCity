@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Apollo } from 'apollo-angular';
+import { Query } from 'apollo-angular';
+import gql from 'graphql-tag';
 
 @Injectable()
-export class SongService {
-
-  constructor(private apollo: Apollo) { }
-
-  getSongDetails() {
-    return;
-  }
+export class SongService extends Query<Response> {
+  document = gql`
+    query Song($songId: String ) {
+      song(song: { id: $songId }) {
+        name
+      }
+    }
+  `;
 }

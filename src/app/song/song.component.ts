@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+
+import { SongService } from '../shared/services/song.service';
 
 @Component({
   selector: 'app-song',
@@ -6,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song.component.scss']
 })
 export class SongComponent implements OnInit {
+  song: any;
 
-  constructor() { }
+  constructor(private songService: SongService) { }
 
   ngOnInit() {
+    this.songService.watch({ songId: '408' })
+      .valueChanges
+      .pipe(
+        map((result: any) => this.song = result.data.song)
+      )
+      .subscribe();
   }
 
 }

@@ -18,6 +18,7 @@ export class SetlistsComponent implements OnInit {
       .valueChanges
       .pipe(
         map((result: any) => this.shows = result.data.shows)
-      ).subscribe();
+      )
+      .subscribe();
   }
 }

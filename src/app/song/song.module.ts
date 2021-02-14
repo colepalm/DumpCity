@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SongComponent } from './song.component';
 import { SongRoutingModule } from './song-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { SongRoutingModule } from './song-routing.module';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     SongRoutingModule
   ]
 })
