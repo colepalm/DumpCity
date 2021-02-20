@@ -18,10 +18,10 @@ import { SharedModule } from './shared/shared.module';
     SetlistsComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     BrowserAnimationsModule,
+    BrowserModule,
+    HttpClientModule,
     MatCardModule,
     SharedModule
   ],

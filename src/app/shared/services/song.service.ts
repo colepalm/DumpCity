@@ -5,9 +5,19 @@ import gql from 'graphql-tag';
 @Injectable()
 export class SongService extends Query<Response> {
   document = gql`
-    query Song($songId: String ) {
+    query Song($songId: String) {
       song(song: { id: $songId }) {
-        name
+        name,
+        firstPlayed {
+          date
+        },
+        lastPlayed {
+          date
+        },
+        currentGap,
+        timesPlayed {
+          id
+        }
       }
     }
   `;
