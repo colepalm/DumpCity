@@ -16,7 +16,17 @@ export class SongService extends Query<Response> {
         },
         currentGap,
         timesPlayed {
-          id
+          set {
+            show {
+              date,
+              venue {
+                name,
+                city,
+                state
+              }
+            }
+            setNumber
+          }
         }
       }
     }

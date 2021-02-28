@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 import { SongService } from '../shared/services/song.service';
 
@@ -9,18 +10,17 @@ import { SongService } from '../shared/services/song.service';
   styleUrls: ['./song.component.scss']
 })
 export class SongComponent implements OnInit {
-  song: any[];
-  displayedColumns: string[] = ['name', 'firstPlayed', 'lastPlayed', 'currentGap', 'timesPlayed'];
+  song: any;
+  displayedColumns: string[] = ['date', 'venue', 'setNumber'];
 
-  constructor(private songService: SongService) { }
+  constructor(private route: ActivatedRoute, private songService: SongService) { }
 
   ngOnInit() {
-    this.songService.watch({ songId: '408' })
+    const songId = this.route.snapshot.paramMap.get('id');
+
+    this.songService.watch({ songId })
       .valueChanges
-      .pipe(
-        map((result: any) => this.song = [result.data.song])
-      )
+      .pipe(map((result: any) => this.song = result.data.song))
       .subscribe();
   }
-
 }
