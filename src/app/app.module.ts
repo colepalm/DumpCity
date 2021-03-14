@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material';
@@ -30,10 +30,13 @@ import { SharedModule } from './shared/shared.module';
     {
       provide: APOLLO_OPTIONS,
       useFactory: (httpLink: HttpLink) => {
+        const prefix = isDevMode() ?
+          'http://localhost:4000' :
+          'https://dump-city-api.herokuapp.com';
         return {
           cache: new InMemoryCache(),
           link: httpLink.create({
-            uri: 'http://localhost:4000/graphql',
+            uri: `${prefix}/graphql`,
           }),
         };
       },

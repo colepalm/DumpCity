@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "dump-city": {
+      "hosting": {
+        "DumpCity": [
+          "dump-city"
+        ]
+      }
+    }
+  }
+}
