@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SetlistsComponent } from './setlists/setlists.component';
 import { SharedModule } from './shared/shared.module';
+import { NavModule } from './nav/nav.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     HttpClientModule,
     MatCardModule,
-    SharedModule
+    SharedModule,
+    NavModule
   ],
   bootstrap: [ AppComponent ],
   providers: [

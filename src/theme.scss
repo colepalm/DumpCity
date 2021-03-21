@@ -2,10 +2,15 @@
 
 @include mat-core();
 
-$custom-theme-primary: mat-palette($mat-light-blue);
-$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
-$custom-theme-warn: mat-palette($mat-red);
+$my-theme-primary: mat-palette($mat-indigo, 700, 300, 900);
+$my-theme-accent: mat-palette($mat-light-blue);
+$my-theme-warn: mat-palette($mat-deep-orange, A200);
 
-$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+// create theme (use mat-dark-theme for themes with dark backgrounds)
+$custom-theme: mat-light-theme(
+    $my-theme-primary,
+    $my-theme-accent,
+    $my-theme-warn
+);
 
 @include angular-material-theme($custom-theme);
