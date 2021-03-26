@@ -5,8 +5,8 @@ import gql from 'graphql-tag';
 @Injectable()
 export class AllShowsService extends Query<Response> {
   document = gql`
-    query shows {
-      shows {
+    query Shows($take: Int!, $skip: Int!) {
+      shows(pagination: { take: $take, skip: $skip }) {
         date,
         venue {
           name,
@@ -16,7 +16,6 @@ export class AllShowsService extends Query<Response> {
         setlist {
           songsPlayed {
             song {
-              id,
               name
             }
           }

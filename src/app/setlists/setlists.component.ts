@@ -14,7 +14,7 @@ export class SetlistsComponent implements OnInit {
   constructor(private allShowService: AllShowsService) { }
 
   ngOnInit() {
-    this.allShowService.watch()
+    this.allShowService.watch({ take: 20, skip: 100})
       .valueChanges
       .pipe(
         map((result: any) => this.shows = result.data.shows)
