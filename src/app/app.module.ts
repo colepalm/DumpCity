@@ -9,25 +9,20 @@ import { InMemoryCache } from '@apollo/client/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SetlistsComponent } from './setlists/setlists.component';
 import { SharedModule } from './shared/shared.module';
 import { NavModule } from './nav/nav.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SetlistsComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,
-    MatCardModule,
     SharedModule,
     NavModule
   ],
-  bootstrap: [ AppComponent ],
+  bootstrap: [AppComponent],
   providers: [
     {
       provide: APOLLO_OPTIONS,
