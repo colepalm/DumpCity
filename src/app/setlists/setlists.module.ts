@@ -6,6 +6,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { SetlistsComponent } from './setlists.component';
 import { SetlistsRoutingModule } from './setlists-routing.module';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { SetlistsRoutingModule } from './setlists-routing.module';
     CommonModule,
     MatCardModule,
     MatPaginatorModule,
+    MatProgressSpinnerModule,
     RouterModule,
     SetlistsRoutingModule
   ]

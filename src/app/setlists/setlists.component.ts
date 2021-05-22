@@ -12,7 +12,7 @@ import { AllShowsService } from '../shared/services/show.service';
   styleUrls: ['./setlists.component.scss']
 })
 export class SetlistsComponent implements OnInit, OnDestroy {
-  shows: any;
+  shows = [];
 
   take = 10;
   skip = 0;
@@ -36,6 +36,7 @@ export class SetlistsComponent implements OnInit, OnDestroy {
   refreshList(event: PageEvent) {
     this.take = event.pageSize;
     this.skip = event.pageIndex * this.take;
+    this.shows = [];
 
     this.showsQuery.fetchMore({
       variables: { take: this.take, skip: this.skip },

@@ -1,25 +1,34 @@
-<div *ngFor="let show of shows;">
-  <mat-card>
-    <mat-card-title>{{ show.date | date: 'MM/dd/yyyy' }}</mat-card-title>
-    <mat-card-subtitle>
-      {{ show.venue.name }}, {{ show.venue.city }}, {{ show.venue.state }}
-    </mat-card-subtitle>
-    <mat-card-content>
-      <ng-container *ngFor="let set of show.setlist">
-        <li>
-          {{ show.setlist.indexOf(set) + 1 }}:
-          <span>
+<div *ngIf="shows.length > 0; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+  <div *ngFor="let show of shows;">
+    <mat-card>
+      <mat-card-title>{{ show.date | date: 'MM/dd/yyyy' }}</mat-card-title>
+      <mat-card-subtitle>
+        {{ show.venue.name }}, {{ show.venue.city }}, {{ show.venue.state }}
+      </mat-card-subtitle>
+      <mat-card-content>
+        <ng-container *ngFor="let set of show.setlist">
+          <li>
+            {{ show.setlist.indexOf(set) + 1 }}:
+            <span>
             <ng-container *ngFor="let songInstance of set.songsPlayed">
               <a [routerLink]="['/song/' + songInstance.song.id]">
                 {{ songInstance.song.name }},
               </a>
             </ng-container>
           </span>
-        </li>
-      </ng-container>
-    </mat-card-content>
-  </mat-card>
-</div>
+          </li>
+        </ng-container>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-template>
+<ng-template #elseBlock>
+  <div class="spinner-wrapper">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
 <mat-paginator [length]="100"
                [pageSize]="10"
                [pageSizeOptions]="[5, 10, 25, 100]"
