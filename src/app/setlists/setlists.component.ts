@@ -38,7 +38,13 @@ export class SetlistsComponent implements OnInit, OnDestroy {
     this.skip = event.pageIndex * this.take;
 
     this.showsQuery.fetchMore({
-      variables: { take: this.take, skip: this.skip }
+      variables: { take: this.take, skip: this.skip },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) { return prev; }
+        return Object.assign({}, prev, {
+          shows: fetchMoreResult.shows,
+        });
+      },
     });
   }
 }
