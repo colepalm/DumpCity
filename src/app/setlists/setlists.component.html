@@ -7,17 +7,19 @@
         {{ show.venue.name }}, {{ show.venue.city }}, {{ show.venue.state }}
       </mat-card-subtitle>
       <mat-card-content>
-        <ng-container *ngFor="let set of show.setlist">
-          <li>
-            {{ show.setlist.indexOf(set) + 1 }}:
-            <span>
-            <ng-container *ngFor="let songInstance of set.songsPlayed">
-              <a [routerLink]="['/song/' + songInstance.song.id]">{{ songInstance.song.name }}</a><!--
-                -->{{ songInstance.segueType ? ' ' + songInstance.segueType + ' ' : ', ' }}
-            </ng-container>
-          </span>
-          </li>
-        </ng-container>
+        <ul>
+          <ng-container *ngFor="let set of show.setlist; last as isLastSet">
+            <li>
+              {{ isLastSet ? 'E' : show.setlist.indexOf(set) + 1 }}:
+              <span>
+                <ng-container *ngFor="let songInstance of set.songsPlayed; last as isLastSong">
+                  <a [routerLink]="['/song/' + songInstance.song.id]">{{ songInstance.song.name }}</a><!--
+                    --><span *ngIf="!isLastSong">{{ songInstance.segueType ? ' ' + songInstance.segueType + ' ' : ', ' }}</span>
+                </ng-container>
+              </span>
+            </li>
+          </ng-container>
+        </ul>
       </mat-card-content>
     </mat-card>
   </div>

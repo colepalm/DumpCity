@@ -16,6 +16,7 @@ export class AllShowsService extends Query<Response> {
         setlist {
           songsPlayed {
             song {
+              id,
               name
             },
             segueType
