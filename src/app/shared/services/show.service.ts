@@ -17,7 +17,8 @@ export class AllShowsService extends Query<Response> {
           songsPlayed {
             song {
               name
-            }
+            },
+            segueType
           }
         }
       }

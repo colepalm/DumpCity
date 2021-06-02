@@ -13,7 +13,7 @@
             <span>
             <ng-container *ngFor="let songInstance of set.songsPlayed">
               <a [routerLink]="['/song/' + songInstance.song.id]">
-                {{ songInstance.song.name }},
+                {{ songInstance.song.name }} {{ songInstance.segueType ? songInstance.segueType : ',' }}
               </a>
             </ng-container>
           </span>
