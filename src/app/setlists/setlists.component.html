@@ -12,9 +12,8 @@
             {{ show.setlist.indexOf(set) + 1 }}:
             <span>
             <ng-container *ngFor="let songInstance of set.songsPlayed">
-              <a [routerLink]="['/song/' + songInstance.song.id]">
-                {{ songInstance.song.name }} {{ songInstance.segueType ? songInstance.segueType : ',' }}
-              </a>
+              <a [routerLink]="['/song/' + songInstance.song.id]">{{ songInstance.song.name }}</a><!--
+                -->{{ songInstance.segueType ? ' ' + songInstance.segueType + ' ' : ', ' }}
             </ng-container>
           </span>
           </li>
