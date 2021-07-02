@@ -3,6 +3,7 @@ import { map } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
 import { SongService } from '../shared/services/song.service';
+import { cloneDeep } from '@apollo/client/utilities';
 
 @Component({
   selector: 'app-song',
@@ -20,7 +21,12 @@ export class SongComponent implements OnInit {
 
     this.songService.watch({ songId })
       .valueChanges
-      .pipe(map((result: any) => this.song = result.data.song))
+      .pipe(map((result: any) => {
+        this.song = cloneDeep(result.data.song);
+        this.song.timesPlayed.sort((a, b) => {
+          return new Date(b.set.show.date).getTime() - new Date(a.set.show.date).getTime()
+        });
+      }))
       .subscribe();
   }
 }
