@@ -33,7 +33,9 @@
     <!-- Set Number Column -->
     <ng-container matColumnDef="setNumber">
       <th mat-header-cell *matHeaderCellDef> Set Number </th>
-      <td mat-cell *matCellDef="let element"> {{ element.set.setNumber }} </td>
+      <td mat-cell *matCellDef="let element">
+        {{ element.set.setNumber === 9 ? 'E' : element.set.setNumber }}
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
